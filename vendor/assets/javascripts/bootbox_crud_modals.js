@@ -36,18 +36,6 @@ BBCrud.Modals = (function () {
                     }
                 }
             };
-            if (id !== -1 && options.data.bbShowDelete !== false) {
-                $.extend(buttons, {
-                    delete: {
-                        "label" : "Delete",
-                        "className" : "btn-danger",
-                        "callback" : function() {
-                            modals.delete(id, options.baseUrl);
-                            return false;
-                        }
-                    }
-                })
-            }
 
             var bbOptions = Object.keys(options.data).reduce(function (result, key) {
                 if (key.indexOf('bb') !== -1) {
