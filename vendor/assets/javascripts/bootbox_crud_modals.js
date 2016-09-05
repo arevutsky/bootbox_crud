@@ -53,7 +53,6 @@ BBCrud.Modals = (function () {
                 keyboard : false,
                 show     : true,
                 header   : title,
-                size     : 'small',
                 buttons: buttons
             }));
 
