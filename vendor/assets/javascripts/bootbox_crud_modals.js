@@ -56,12 +56,18 @@ BBCrud.Modals = (function () {
         buttons: buttons
       }));
 
+      console.log(url);
+
+      console.log(bbOptions);
+
       var reqParams = Object.keys(options.data).reduce(function (result, key) {
         if (key.indexOf('bb') === -1) {
           result[key] = options.data[key];
         }
         return result;
       }, {});
+
+      console.log(reqParams);
 
       $.get(url, reqParams, function(data) {
         var result = $(data);

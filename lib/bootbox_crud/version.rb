@@ -1,5 +1,5 @@
 module BootboxCrud
   module Rails
-    VERSION = '0.2.6.2'
+    VERSION = '0.2.6.3'
   end
 end
