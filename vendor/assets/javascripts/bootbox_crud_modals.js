@@ -37,8 +37,6 @@ BBCrud.Modals = (function () {
         }
       };
 
-      console.log(options);
-
       var bbOptions = Object.keys(options.data).reduce(function (result, key) {
         if (key.indexOf('bb') !== -1) {
           var cleanKey = key.replace('bb', '');
@@ -58,10 +56,6 @@ BBCrud.Modals = (function () {
         buttons: buttons
       }));
 
-      console.log(url);
-
-      console.log(bbOptions);
-
       var reqParams = Object.keys(options.data).reduce(function (result, key) {
         if (key.indexOf('bb') === -1) {
           result[key] = options.data[key];
@@ -69,7 +63,7 @@ BBCrud.Modals = (function () {
         return result;
       }, {});
 
-      console.log(reqParams);
+      if ('url' in bbOptions) url = bbOptions['url'];
 
       $.get(url, reqParams, function(data) {
         var result = $(data);
@@ -125,8 +119,6 @@ BBCrud.Modals = (function () {
         }
       }));
 
-      console.log(data);
-
       $.get(baseUrl + id, function(result) {
         handleResponse(result);
       }).error(function (response) {
@@ -149,8 +141,6 @@ BBCrud.Modals = (function () {
         var args = $.extend({}, link.data());
         delete args['entity'];
         delete args['action'];
-        console.log(link.data());
-        console.log(args);
         BBCrud.Models[link.data('entity')][link.data('action')].call(link, args);
         return false;
       });
@@ -177,15 +167,12 @@ BBCrud.Models = (function () {
 
         return {
           new: function (data) {
-            console.log(data);
             BBCrud.Modals.create('Create ' + titleName, baseUrl, null, data);
           },
           edit: function (data) {
-            console.log(data);
             BBCrud.Modals.update(data.id, 'Edit ' + titleName, baseUrl, undefined, false, undefined, undefined, data);
           },
           show: function (data) {
-            console.log(data);
             BBCrud.Modals.show(data.id, titleName.charAt(0).toUpperCase() + titleName.slice(1) + ' detail', baseUrl, data);
           }
         };
