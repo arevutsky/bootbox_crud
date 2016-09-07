@@ -175,12 +175,15 @@ BBCrud.Models = (function () {
 
         return {
           new: function (data) {
+            console.log(data);
             BBCrud.Modals.create('Create ' + titleName, baseUrl, null, data);
           },
           edit: function (data) {
+            console.log(data);
             BBCrud.Modals.update(data.id, 'Edit ' + titleName, baseUrl, undefined, false, undefined, undefined, data);
           },
           show: function (data) {
+            console.log(data);
             BBCrud.Modals.show(data.id, titleName.charAt(0).toUpperCase() + titleName.slice(1) + ' detail', baseUrl, data);
           }
         };
