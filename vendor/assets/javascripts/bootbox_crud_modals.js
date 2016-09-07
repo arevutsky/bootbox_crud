@@ -149,6 +149,8 @@ BBCrud.Modals = (function () {
         var args = $.extend({}, link.data());
         delete args['entity'];
         delete args['action'];
+        console.log(link.data());
+        console.log(args);
         BBCrud.Models[link.data('entity')][link.data('action')].call(link, args);
         return false;
       });
