@@ -37,6 +37,8 @@ BBCrud.Modals = (function () {
         }
       };
 
+      console.log(options);
+
       var bbOptions = Object.keys(options.data).reduce(function (result, key) {
         if (key.indexOf('bb') !== -1) {
           var cleanKey = key.replace('bb', '');
