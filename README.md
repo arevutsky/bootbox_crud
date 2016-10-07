@@ -34,7 +34,6 @@ Add bootbox alert markup into the main container of your ```app/views/layouts/ap
     %body
       .container
         = yield
-        = bb_alert
 
 Run the install generator to copy over default simple_form initializers and models.js for defining modal CRUD enabled models
 
